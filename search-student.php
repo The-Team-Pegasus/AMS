@@ -9,6 +9,7 @@
             }
         </style>
     </head>
+
     <header>
         <div class="topnav">
             <h1>Faculty Dashboard</h1>
@@ -20,29 +21,30 @@
             </ul>
         </div>
     </header>
+
     <body class="facultydb">
         <div class="form2">
             <p>Enter Roll Number
-            <input type="text" name="" placeholder="enter roll number"></p>
+            <input type="text" name="rollno" placeholder="enter roll number"></p>
             <br>
             <label for="Section">Choose a Section:</label><br>
 
-        <select name="Section" id="Section">
-            <option value="none">-Select-</option>
-            <option value="CSEA">CSEA</option>
-            <option value="CSEB">CSEB</option>
-            <option value="CSEC">CSEC</option>
-            <option value="CSED">CSED</option>
+        <select name="section" id="Section">
+        <option value="none">-Select-</option>
+            <option value="class-1">CLASS-1</option>
+            <option value="class-2">CLASS-2</option>
+            <option value="class-3">CLASS-3</option>
+            <option value="class-4">CLASS-4</option>
         </select>
         <br>
         <label for="Subject">Choose a Subject:</label><br>
 
-        <select name="Subject" id="Subject">
-            <option value="none">-Select-</option>
-            <option value="CN">Computer Networks</option>
-            <option value="CD">Compiler Design</option>
-            <option value="SE">Software Engineering</option>
-            <option value="SSK">Softskills</option>
+        <select name="subject" id="Subject">
+        <option value="none">-Select-</option>
+            <option value="maths">MATHS</option>
+            <option value="english">ENGLISH</option>
+            <option value="science">SCIENCE</option>
+            <option value="social">SOCIAL STUDIES</option>
         </select>
         <input type="submit" name="" value="Submit">
     </div>
