@@ -1,3 +1,90 @@
+/*index.html*/
+.loginform
+{
+    margin: 0;
+    padding: 0;
+    background: url(img/pic5.jpeg);
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+    background-repeat: no-repeat;
+    background-position-y: unset;
+}
+
+.loginbox 
+{
+  
+    width: 420px;
+    height: 500px;
+    background: black;
+    color: whitesmoke;
+    top: 50%;
+    left: 70%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 20px 30px;
+}
+
+form{
+    margin-top: 30%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+h1{
+    margin: 0px;
+    padding: 20px 50px 10px;
+    text-align: center;
+    font-size: 35px;
+}
+
+.loginbox p{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.loginbox input{
+    width: 100%;
+    height: auto; 
+    margin-bottom: 20px;
+
+}
+.loginbox input[type="text"], input[type="password"]{
+    border: none;
+    border-bottom: 1px solid #ffff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.loginbox input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #fb2525;
+    color: #fff;
+    font-size: 18px;
+    margin-top: 18px;
+}
+
+.loginbox input[type="submit"]:hover{
+    cursor:pointer ;
+    background: rgba(20, 238, 0, 0.651);
+    color: #000
+}
+
+.loginbox a{
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 20px;
+    color: darkgray;
+}
+
 /*schangepwd.html*/
 .schangepwd 
 {
@@ -158,7 +245,6 @@ h1{
     color: darkgray;
 }
 
-
 /*facultydb.html*/
 .facultydb{
     margin: 0;
@@ -170,6 +256,20 @@ h1{
     background-repeat: no-repeat; 
     background-position-y: unset;
 }
+
+.facultydb iframe{
+   
+    background: black;
+    color: whitesmoke;
+    top: 75%;
+    left: 47%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 5px 5px;
+    
+}
+
 .label1 {
     top: 25%;
     left:35%;
@@ -190,6 +290,49 @@ h1{
     border: none;
     background-color: transparent;
     border-bottom: 2px solid black;
+}
+.topnav1 {
+    background-color: rgb(21, 127, 226);
+    overflow: hidden;
+  }
+  .topnav {
+    background-color: rgb(129, 86, 179);
+    overflow: hidden;
+  }
+h1{
+    position: absolute;
+    padding: 4px;
+    float: left;
+    margin-left: 15px;
+    margin-top: 5px;
+    color: rgb(241, 184, 184);
+}
+
+ul{
+    width: auto;
+    float: right;
+    margin-top: 20px;
+    
+}
+
+li{
+    display: inline-block;
+    margin-right: 20px;
+    margin-left: 10px;
+    padding: 15px, 10px;
+    color: rgb(241, 184, 184);
+}
+
+a {
+    text-align: center;
+    color: #ffff;
+    text-decoration: none;
+    font-size: 1.2vw;
+}
+
+a:hover{
+    color: aquamarine;
+    transition: 0.5s;
 }
 .label1 input[type="submit"]{
     border: none;
@@ -221,4 +364,102 @@ h1{
     font-family: sans-serif;
     background-repeat: no-repeat; 
     background-position-y: unset;
+}
+
+/*markattendance.html*/
+.ma {
+    color: rgb(102, 27, 27);
+    background-color: rgb(201, 128, 80);
+}
+
+/*studentdb.html*/
+.studentdb iframe{
+    background: black;
+    color: whitesmoke;
+    top: 65%;
+    left: 47%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 5px 5px;
+    
+}
+
+/*studentreport.html*/
+.form2 p{
+    font-size: 30px;
+    color: rgb(219, 122, 58);
+    top: 20px;
+    margin: 0px;
+    border: 10px,10px;
+}
+
+.form2 input[type="text"]{
+    width: 40%;
+    height: 30px;
+    font-size: 20px;
+    margin: 10px;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid rgb(236, 230, 230);
+    color: rgb(0, 0, 0);
+    
+}
+
+.form2{
+    width: 300px;
+    height: 430px;
+    top: 20%;
+    left: 10%;
+    position: absolute;
+    background-color: black;
+    color: blanchedalmond;
+    padding: 20px 20px;
+    
+}
+
+.form2 input[type="submit"]{
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 70px;
+    position: absolute;
+    top: 75%;
+    left: 40%;
+    background: #fb2525;
+    color: #fff;
+    font-size: 18px;
+    margin-top: 18px;
+}
+
+.form2 input[type="submit"]:hover{
+    cursor:pointer ;
+    background: rgb(15, 158, 15);
+    color: #000
+}
+
+
+
+.form2 label{
+    font-size: 30px;
+    color: rgb(219, 122, 58);
+    margin-bottom: 20px;
+    padding-bottom: 40px;
+    border-bottom: 30px;
+}
+
+.form2 select{
+    color: blanchedalmond;
+    width: 45%;
+    height: 40px;
+    font-size: 20px;
+    margin: 20px;
+    border: 20px;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid rgb(248, 247, 247);
+}
+
+.sr iframe{
+    background-color: blanchedalmond;
 }

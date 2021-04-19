@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>AMS Faculty Dashboard</title>
+        <title>AMS Student Report</title>
         <link rel="stylesheet" type="text/css" href="./CSS/styles.css">
         <style>
             .facultydb{
@@ -13,16 +13,19 @@
         <div class="topnav">
             <h1>Faculty Dashboard</h1>
             <ul>
-                <li><a href="#">Mark Attendance</a></li>
-                <li><a href="search-student.html">Search Student</a></li>
+                <li><a href="facultyDB.html">Mark Attendance</a></li>
+                <li><a href="#">Student Report</a></li>
                 <li><a href="faculty-change-password.html">Change Password</a></li>
                 <li><a href="index.html">Log Out</a></li>
             </ul>
         </div>
     </header>
     <body class="facultydb">
-        <div class="label1">
-        <label for="Section">Choose a Section:</label>
+        <div class="form2">
+            <p>Enter Roll Number
+            <input type="text" name="" placeholder="enter roll number"></p>
+            <br>
+            <label for="Section">Choose a Section:</label><br>
 
         <select name="Section" id="Section">
             <option value="none">-Select-</option>
@@ -32,7 +35,7 @@
             <option value="CSED">CSED</option>
         </select>
         <br>
-        <label for="Subject">Choose a Subject:</label>
+        <label for="Subject">Choose a Subject:</label><br>
 
         <select name="Subject" id="Subject">
             <option value="none">-Select-</option>
@@ -43,6 +46,5 @@
         </select>
         <input type="submit" name="" value="Submit">
     </div>
-        <iframe src="markattendance.html" height="400" width="800" title="MA"></iframe>
     </body>
 </html>
