@@ -1,3 +1,163 @@
+/*schangepwd.html*/
+.schangepwd 
+{
+    margin: 0;
+    padding: 0;
+    background: url(img/pic4.jpeg);
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+    background-repeat: no-repeat;
+    background-position-y: unset;
+}
+
+.scpwd
+{
+    width: 350px;
+    height: 480px;
+    background: black;
+    color: whitesmoke;
+    top: 20%;
+    left: 70%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 20px 30px;
+
+}
+
+h1{
+    margin: 0;
+    padding: 20px 10px 10px;
+    text-align: center;
+    font-size: 35px;
+}
+
+.scpwd p{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.scpwd input{
+    width: 100%; 
+    margin-bottom: 20px;
+
+}
+.scpwd input[type="password"]{
+    border: none;
+    border-bottom: 1px solid #ffff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.scpwd input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #fb2525;
+    color: #fff;
+    margin-top: 18px;
+    font-size: 18px;
+}
+
+.scpwd input[type="submit"]:hover{
+    cursor:pointer ;
+    background: rgb(15, 158, 15);
+    color: #000
+}
+
+.scpwd a{
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 20px;
+    color: darkgray;
+}
+
+/*fchangepwd.html*/
+.fchangepwd 
+{
+    margin: 0;
+    padding: 0;
+    background: url(img/pic4);
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+    background-repeat: no-repeat;
+    background-position-y: unset;
+}
+
+.fcpwd
+{
+    width: 420px;
+    height: 580px;
+    background: black;
+    color: whitesmoke;
+    top: 50%;
+    left: 70%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 20px 30px;
+
+}
+
+h1{
+    margin: 0;
+    padding: 20px 10px 10px;
+    text-align: center;
+    font-size: 35px;
+}
+
+.fcpwd p{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.fcpwd input{
+    width: 100%; 
+    margin-bottom: 20px;
+
+}
+.fcpwd input[type="password"]{
+    border: none;
+    border-bottom: 1px solid #ffff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.fcpwd input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #fb2525;
+    color: #fff;
+    margin-top: 18px;
+    font-size: 18px;
+}
+
+.fcpwd input[type="submit"]:hover{
+    cursor:pointer ;
+    background: rgb(15, 158, 15);
+    color: #000
+}
+
+.fcpwd a{
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 20px;
+    color: darkgray;
+}
+
 
 /*facultydb.html*/
 .facultydb{
