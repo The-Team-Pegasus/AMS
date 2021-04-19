@@ -15,7 +15,7 @@
         <nav>
             <ul>
                 <li><a href="#">View Attendance</a></li>
-                <li><a href="student-change-password.html">Change Password</a></li>
+                <li><a href="student-change-password.php">Change Password</a></li>
                 <li><a href="Logout.php">Log Out</a></li>
             </ul>
         </nav></div>

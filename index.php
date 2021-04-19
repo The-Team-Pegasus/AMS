@@ -16,9 +16,20 @@ if(isset($_POST['username'])){
     $sql="select * from login where username='".$uname."'AND password='".$password."' limit 1";
     
     $result=mysqli_query($con,$sql);
-    
-    if(mysqli_num_rows($result)==1){
-        echo " You Have Successfully Logged in";
+    $sub_string = substr($uname, 0, 3);
+
+    if(mysqli_num_rows($result)==1 && $sub_string=='FAC' ){
+        session_start();
+        $_SESSION['is_login']=true;
+        $_SESSION['username']=$username;
+        header("Location: facultyDB.php");
+        exit();
+    }
+    else if(mysqli_num_rows($result)==1 && $sub_string=='STU'){
+        session_start();
+        $_SESSION['is_login']=true;
+        $_SESSION['username']=$username;
+        header("Location: studentDB.php");
         exit();
     }
     else{

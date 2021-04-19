@@ -13,16 +13,16 @@
         <div class="topnav1">
             <h1>Student Dashboard</h1>
             <ul>
-                <li><a href="studentDB.html">View Attendance</a></li>
+                <li><a href="studentDB.php">View Attendance</a></li>
                 <li><a href="#">Change Password</a></li>
-                <li><a href="index.html">Log Out</a></li>
+                <li><a href="index.php">Log Out</a></li>
             </ul>
         </div>
     </header>
 
     <body class="schangepwd">
         <div class="scpwd">
-            <h1>Change Password</h1>
+            <h2>Change Password</h2>
             <form>
                 <p>Old Password</p>
                 <input type="password" name="" placeholder="enter old password">

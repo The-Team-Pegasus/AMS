@@ -13,10 +13,10 @@
         <div class="topnav">
             <h1>Faculty Dashboard</h1>
             <ul>
-                <li><a href="facultyDB.html">Mark Attendance</a></li>
+                <li><a href="facultyDB.php">Mark Attendance</a></li>
                 <li><a href="#">Student Report</a></li>
-                <li><a href="faculty-change-password.html">Change Password</a></li>
-                <li><a href="index.html">Log Out</a></li>
+                <li><a href="faculty-change-password.php">Change Password</a></li>
+                <li><a href="index.php">Log Out</a></li>
             </ul>
         </div>
     </header>

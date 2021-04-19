@@ -14,9 +14,9 @@
             <h1>Faculty Dashboard</h1>
             <ul>
                 <li><a href="#">Mark Attendance</a></li>
-                <li><a href="search-student.html">Search Student</a></li>
-                <li><a href="faculty-change-password.html">Change Password</a></li>
-                <li><a href="index.html">Log Out</a></li>
+                <li><a href="search-student.php">Search Student</a></li>
+                <li><a href="faculty-change-password.php">Change Password</a></li>
+                <li><a href="Logout.php">Log Out</a></li>
             </ul>
         </div>
     </header>
@@ -26,20 +26,20 @@
 
         <select name="Section" id="Section">
             <option value="none">-Select-</option>
-            <option value="CSEA">CSEA</option>
-            <option value="CSEB">CSEB</option>
-            <option value="CSEC">CSEC</option>
-            <option value="CSED">CSED</option>
+            <option value="CSEA">CLASS-1</option>
+            <option value="CSEB">CLASS-2</option>
+            <option value="CSEC">CLASS-3</option>
+            <option value="CSED">CLASS-4</option>
         </select>
         <br>
         <label for="Subject">Choose a Subject:</label>
 
         <select name="Subject" id="Subject">
             <option value="none">-Select-</option>
-            <option value="CN">Computer Networks</option>
-            <option value="CD">Compiler Design</option>
-            <option value="SE">Software Engineering</option>
-            <option value="SSK">Softskills</option>
+            <option value="CN">MATHS</option>
+            <option value="CD">ENGLISH</option>
+            <option value="SE">SCIENCE</option>
+            <option value="SSK">SOCIAL STUDIES</option>
         </select>
         <input type="submit" name="" value="Submit">
     </div>

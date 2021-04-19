@@ -100,11 +100,11 @@ h1{
 
 .scpwd
 {
-    width: 350px;
-    height: 480px;
+    width: 300px;
+    height: 500px;
     background: black;
     color: whitesmoke;
-    top: 20%;
+    top: 60%;
     left: 70%;
     position: absolute;
     transform: translate(-50%,-50%);
@@ -113,22 +113,22 @@ h1{
 
 }
 
-h1{
+h2{
     margin: 0;
-    padding: 20px 10px 10px;
+    padding: 10px 10px 10px;
     text-align: center;
-    font-size: 35px;
+    font-size: 25px;
 }
 
 .scpwd p{
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .scpwd input{
     width: 100%; 
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 
 }
 .scpwd input[type="password"]{
@@ -138,7 +138,7 @@ h1{
     outline: none;
     height: 40px;
     color: #fff;
-    font-size: 16px;
+    font-size: 13px;
 }
 
 .scpwd input[type="submit"]
@@ -148,8 +148,8 @@ h1{
     height: 40px;
     background: #fb2525;
     color: #fff;
-    margin-top: 18px;
-    font-size: 18px;
+    margin-top: 12px;
+    font-size: 13px;
 }
 
 .scpwd input[type="submit"]:hover{
@@ -180,11 +180,11 @@ h1{
 
 .fcpwd
 {
-    width: 420px;
-    height: 580px;
+    width: 300px;
+    height: 500px;
     background: black;
     color: whitesmoke;
-    top: 50%;
+    top: 60%;
     left: 70%;
     position: absolute;
     transform: translate(-50%,-50%);
@@ -201,14 +201,14 @@ h1{
 }
 
 .fcpwd p{
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .fcpwd input{
     width: 100%; 
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 
 }
 .fcpwd input[type="password"]{
@@ -218,7 +218,7 @@ h1{
     outline: none;
     height: 40px;
     color: #fff;
-    font-size: 16px;
+    font-size: 13px;
 }
 
 .fcpwd input[type="submit"]
@@ -228,8 +228,8 @@ h1{
     height: 40px;
     background: #fb2525;
     color: #fff;
-    margin-top: 18px;
-    font-size: 18px;
+    margin-top: 12px;
+    font-size: 13px;
 }
 
 .fcpwd input[type="submit"]:hover{
@@ -409,12 +409,12 @@ a:hover{
 .form2{
     width: 300px;
     height: 430px;
-    top: 20%;
+    top: 10%;
     left: 10%;
     position: absolute;
     background-color: black;
     color: blanchedalmond;
-    padding: 20px 20px;
+    padding: 10px 20px;
     
 }
 
