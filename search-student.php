@@ -3,11 +3,7 @@
     <head>
         <title>AMS Student Report</title>
         <link rel="stylesheet" type="text/css" href="./CSS/styles.css">
-        <style>
-            .facultydb{
-                background: url(img/pic4.jpeg);
-            }
-        </style>
+      
     </head>
 
     <header>
@@ -27,14 +23,14 @@
             <p>Enter Roll Number
             <input type="text" name="rollno" placeholder="enter roll number"></p>
             <br>
-            <label for="Section">Choose a Section:</label><br>
+            <label for="Section">Choose :</label><br>
 
-        <select name="section" id="Section">
-        <option value="none">-Select-</option>
-            <option value="class-1">CLASS-1</option>
-            <option value="class-2">CLASS-2</option>
-            <option value="class-3">CLASS-3</option>
-            <option value="class-4">CLASS-4</option>
+            <select name="Section" id="Section">
+            <option value="none">-Select-</option>
+            <option value="class1">CLASS-1</option>
+            <option value="class2">CLASS-2</option>
+            <option value="class3">CLASS-3</option>
+            <option value="class4">CLASS-4</option>
         </select>
         <br>
         <label for="Subject">Choose a Subject:</label><br>
