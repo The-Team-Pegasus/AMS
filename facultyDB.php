@@ -43,6 +43,6 @@
         </select>
         <input type="submit" name="" value="Submit">
     </div>
-        <iframe src="markattendance.html" height="400" width="800" title="MA"></iframe>
+        <iframe src="markattendance.php" height="300" width="800" title="MA"></iframe>
     </body>
 </html>
