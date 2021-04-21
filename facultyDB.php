@@ -7,6 +7,13 @@
             .facultydb{
                 background: url(img/pic4.jpeg);
             }
+            iframe{
+                top: 90%;
+    left: 47%;
+            }
+            label{
+                font-size:15px;
+            }
         </style>
     </head>
     <header>
@@ -22,7 +29,9 @@
     </header>
     <body class="facultydb">
         <div class="label1">
-        <label for="Section">Choose a Section:</label>
+        <label for="birthday"><b>DATE:</label>
+  <input type="date" id="birthday" name="birthday"><br>
+        <label for="Section"><b>CHOOSE A SECTION:</label>
 
         <select name="Section" id="Section">
             <option value="none">-Select-</option>
@@ -32,7 +41,7 @@
             <option value="class4">CLASS-4</option>
         </select>
         <br>
-        <label for="Subject">Choose a Subject:</label>
+        <label for="Subject"><b>CHOOSE A SUBJECT:</label>
 
         <select name="Subject" id="Subject">
             <option value="none">-Select-</option>
@@ -43,6 +52,7 @@
         </select>
         <input type="submit" name="" value="Submit">
     </div>
+    
         <iframe src="markattendance.php" height="300" width="800" title="MA"></iframe>
     </body>
 </html>

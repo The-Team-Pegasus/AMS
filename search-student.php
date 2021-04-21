@@ -3,9 +3,6 @@
     <head>
         <title>AMS Student Report</title>
         <link rel="stylesheet" type="text/css" href="./CSS/styles.css">
-<<<<<<< HEAD
-      
-=======
         <style>
             .facultydb{
                 background: url(img/pic4.jpeg);
@@ -14,8 +11,8 @@
                 color: black;
             }
             .form2 p{
-    font-size: 30px;
-    color: rgb(219, 122, 58);
+    font-size: 20px;
+    color: rgb(2, 122, 158);
     top: 20px;
     margin: 15px;
     border: 10px,10px;
@@ -38,8 +35,8 @@
 }
 
 .form2{
-    width: 300px;
-    height: 430px;
+    width: 280px;
+    height: 450px;
     top: 20%;
     left: 5%;
     position: absolute;
@@ -52,11 +49,11 @@
 .form2 input[type="submit"]{
     border: none;
     outline: none;
-    height: 50px;
+    height: 45px;
     width: 70px;
     position: absolute;
     top: 80%;
-    left: 40%;
+    left: 60%;
     background: #fb2525;
     color: #fff;
     font-size: 18px;
@@ -72,8 +69,8 @@
 
 
 .form2 label{
-    font-size: 30px;
-    color: rgb(219, 122, 58);
+    font-size: 20px;
+    color: rgb(2, 122, 158);
     margin: 20px;
     padding-bottom: 40px;
     border-bottom: 30px;
@@ -96,7 +93,7 @@
 
 }
         </style>
->>>>>>> 3328af88c016cd2d44ffe09c50927070c555e3fb
+
     </head>
 
     <header>
@@ -116,7 +113,7 @@
             <p>Enter Roll Number
             <input type="text" name="rollno" placeholder="enter roll number"></p>
             <br>
-            <label for="Section">Choose :</label><br>
+            <label for="Section">CHOOSE A CLASS:</label><br>
 
             <select name="Section" id="Section">
             <option value="none">-Select-</option>
@@ -126,7 +123,7 @@
             <option value="class4">CLASS-4</option>
         </select>
         <br>
-        <label for="Subject">Choose a Subject:</label><br>
+        <label for="Subject">CHOOSE A SUBJECT:</label><br>
 
         <select name="subject" id="Subject">
         <option value="none">-Select-</option>
