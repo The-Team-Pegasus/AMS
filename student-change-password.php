@@ -1,4 +1,33 @@
-<!DOCTYPE html>
+<?php 
+$host="localhost";
+$user="root";
+$password="";
+$db="ams";
+
+$con=  mysqli_connect($host,$user,$password);
+mysqli_select_db($con,$db);
+
+if(isset($_POST['username'])){
+
+    echo "entered";
+    $uname=$_POST['username'];
+    $oldpwd=$_POST['oldpwd'];
+    $newpwd=$_POST['newpwd'];
+    $cnfmpwd=$_POST['cnfmpwd'];
+    $sql="select password from login where username='".$uname."'AND password='".$oldpwd."' limit 1";
+    
+    $result=mysqli_query($con,$sql);
+
+    if(mysqli_num_rows($result)==1){
+       
+    }
+    else {
+       echo "oldpassword entered is incorect";
+    }
+    
+        
+}
+?>
 <html>
     <head>
         <title>AMS student change password</title>
@@ -24,13 +53,15 @@
         <div class="scpwd">
             <h2>Change Password</h2>
             <form>
+            <p>Enter Username</p>
+            <input type="text" name="username" placeholder="User Id" >
                 <p>Old Password</p>
-                <input type="password" name="" placeholder="enter old password">
+                <input type="password" name="oldpwd" placeholder="enter old password">
                 <p>New Password</p>
-                <input type="password" name="" placeholder="enter new password">
+                <input type="password" name="newpwd" placeholder="enter new password">
                 <p>Re-enter New Password</p>
-                <input type="password" name="" placeholder="re-enter new password">
-                <input type="submit" name="" value="Change">
+                <input type="password" name="cnfmnew" placeholder="re-enter new password">
+                <input type="submit" name="submit" value="Change">
 
             </form>
         </div>
