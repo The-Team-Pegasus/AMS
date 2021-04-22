@@ -29,8 +29,8 @@
     </header>
     <body class="facultydb">
         <div class="label1">
-        <label for="birthday"><b>DATE:</label>
-  <input type="date" id="birthday" name="birthday"><br>
+        <label for=""><b>DATE:</label>
+  <input type="date" name=""><br>
         <label for="Section"><b>CHOOSE A SECTION:</label>
 
         <select name="Section" id="Section">
