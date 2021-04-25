@@ -49,7 +49,7 @@ session_start();
 
 
 if(isset($_POST['submit'])){
-    $uname=$_SESSION['username'];
+    $uname=$_POST['username'];
    
 $op=$_POST['opwd'];
 $np=$_POST['npwd'];
