@@ -29,8 +29,13 @@
     </header>
     <body class="facultydb">
         <div class="label1">
+<<<<<<< HEAD
         <label ><b>DATE:</label>
   <input type="date" id="" name=""><br>
+=======
+        <label for=""><b>DATE:</label>
+  <input type="date" name=""><br>
+>>>>>>> c76ae81654c2b8a50871a8f34f70bfee56515688
         <label for="Section"><b>CHOOSE A SECTION:</label>
 
         <select name="Section" id="Section">
