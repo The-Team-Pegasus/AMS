@@ -22,15 +22,57 @@
     <body class="schangepwd">
         <div class="scpwd">
             <h2>Change Password</h2>
-            <form>
+            <form method="POST" >
+            <p>Username</p>
+                <input type="text" name="username" placeholder="username">
                 <p>Old Password</p>
-                <input type="password" name="" placeholder="enter old password">
+                <input type="password" name="opwd" placeholder="enter old password">
                 <p>New Password</p>
-                <input type="password" name="" placeholder="enter new password">
+                <input type="password" name="npwd" placeholder="enter new password">
                 <p>Re-enter New Password</p>
-                <input type="password" name="" placeholder="re-enter new password">
-                <input type="submit" name="" value="Change">
+                <input type="password" name="cpwd" placeholder="re-enter new password">
+                <input type="submit" name="submit" value="Change">
             </form>
         </div>
     </body>
 </html>
+<?php 
+
+$host="localhost";
+$user="root";
+$password="";
+$db="ams";
+
+$con=  mysqli_connect($host,$user,$password);
+mysqli_select_db($con,$db);
+session_start();
+
+
+if(isset($_POST['submit'])){
+    $uname=$_SESSION['username'];
+   
+$op=$_POST['opwd'];
+$np=$_POST['npwd'];
+$cp=$_POST['cpwd'];
+if($np!=$cp){
+    echo "New and Con not matching";
+}
+else{
+    $sql="select * from login where username='$uname' AND password='$op'";
+    $result=mysqli_query($con,$sql);
+    if(mysqli_num_rows($result)>0){
+        $sql="update login set password='$np' where username='$uname' AND password='$op'";
+        if(mysqli_query($con,$sql)){
+        echo "Pass changes successfully";}
+        else{
+            echo "failed";
+        }
+    }
+    else{
+        echo"try again";
+    }
+}
+    
+}
+
+?>
