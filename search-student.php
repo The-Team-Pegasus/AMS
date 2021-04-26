@@ -205,6 +205,10 @@
                 <?php
                 }
                 ?>
+                <tr>
+                                <td>attendance percentage</td>
+                                <td>percentage</td>
+                            <tr>
                     </tbody>
                 </table>
     </body>
