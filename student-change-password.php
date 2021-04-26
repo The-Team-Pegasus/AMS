@@ -1,3 +1,9 @@
+<?php 
+session_start();
+
+if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
+
+ ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,19 +29,25 @@
         <div class="scpwd">
             <h2>Change Password</h2>
             <form method="POST" >
-            <p>Username</p>
-                <input type="text" name="username" placeholder="username">
-                <p>Old Password</p>
+               <p>Old Password</p>
                 <input type="password" name="opwd" placeholder="enter old password">
                 <p>New Password</p>
                 <input type="password" name="npwd" placeholder="enter new password">
-                <p>Re-enter New Password</p>
+                <p>Confirm new Password</p>
                 <input type="password" name="cpwd" placeholder="re-enter new password">
                 <input type="submit" name="submit" value="Change">
             </form>
         </div>
     </body>
 </html>
+<?php 
+}else{
+     header("Location: index.php");
+     exit();
+}
+ ?>
+
+
 <?php 
 
 $host="localhost";
@@ -45,25 +57,22 @@ $db="ams";
 
 $con=  mysqli_connect($host,$user,$password);
 mysqli_select_db($con,$db);
-session_start();
+
 
 
 if(isset($_POST['submit'])){
-    $uname=$_POST['username'];
+    $uname=$_SESSION['username'];
    
 $op=$_POST['opwd'];
 $np=$_POST['npwd'];
 $cp=$_POST['cpwd'];
 if($np!=$cp){
-    echo "New password and confirm new password are not matching ";
+    echo "New password and confirm new password are not matching";
 }
 else{
-    $sql="select * from login where username='".$uname."'AND password='".$op."' limit 1";
-    
+    $sql="select * from login where username='$uname' AND password='$op'";
     $result=mysqli_query($con,$sql);
-     
     if(mysqli_num_rows($result)>0){
-      
         $sql="update login set password='$np' where username='$uname' AND password='$op'";
         if(mysqli_query($con,$sql)){
         echo "Password changed successfully";}
