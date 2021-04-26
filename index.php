@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 $host="localhost";
 $user="root";
 $password="";
@@ -8,11 +8,19 @@ $db="ams";
 $con=  mysqli_connect($host,$user,$password);
 mysqli_select_db($con,$db);
 
-if(isset($_POST['username'])){
+if(isset($_POST['username']) && isset($_POST['password'])){
     
     $uname=$_POST['username'];
     $password=$_POST['password'];
-    
+
+    if (empty($uname)) {
+		header("Location: index.php?error=<h4>⚠️UserId is required</h4>");
+	    exit();
+	}else if(empty($password)){
+        header("Location: index.php?error=<h4>⚠️Password is required</h4>");
+	    exit();
+	}
+    else{
     $sql="select * from login where username='".$uname."'AND password='".$password."' limit 1";
     
     $result=mysqli_query($con,$sql);
@@ -20,23 +28,42 @@ if(isset($_POST['username'])){
 
     if(mysqli_num_rows($result)==1 && $sub_string=='FAC' ){
         session_start();
-        $_SESSION['is_login']=true;
-        $_SESSION['username']=$username;
-        header("Location: facultyDB.php");
-        exit();
+        $row = mysqli_fetch_assoc($result);
+            if ($row['username'] == $uname && $row['password'] == $password) {
+            	$_SESSION['username'] = $row['username'];
+            
+            	$_SESSION['id'] = $row['id'];
+            	header("Location: facultyDB.php");
+		        exit();
+            }else{
+                header("Location: index.php?error=<h4>❌Incorect UserId or password</h4>");
+                exit();
+        
+			}
+
     }
     else if(mysqli_num_rows($result)==1 && $sub_string=='STU'){
         session_start();
-        $_SESSION['is_login']=true;
-        $_SESSION['username']=$username;
-        header("Location: studentDB.php");
-        exit();
+        $row = mysqli_fetch_assoc($result);
+            if ($row['username'] == $uname && $row['password'] == $password) {
+            	$_SESSION['username'] = $row['username'];
+            	$_SESSION['id'] = $row['id'];
+            	header("Location: studentDB.php");
+		        exit();
+            }
+            else{
+                header("Location: index.php?error=<h4>❌Incorect UserId or Password</h4>");
+                exit();
+        
+			}
+
     }
     else{
-        echo " You Have Entered Incorrect Password";
+        header("Location: index.php?error=<h4>❌Incorect UserId or password</h4>");
         exit();
     }
         
+}
 }
 ?>
 
@@ -61,8 +88,11 @@ if(isset($_POST['username'])){
                                   </div>
                                   <div class=" col-lg-6 px-5 pt-5">
                                     <h1 class="font-weight-bold py-3">Pegasus Secondary School</h1>
-                                    <h4>Sign into your account</h4>
+                                    <h3>Sign into your account</h3>
                                     <form method="POST" action="#">
+                                    <?php if (isset($_GET['error'])) { ?>
+     		<p class="error"><?php echo $_GET['error']; ?></p>
+     	<?php } ?>
                                         <div class="form-row">
                                             <div class="col-lg-7">
                                                 <input type="text" name="username" placeholder="User Id" class="form-control my-3 p-3">

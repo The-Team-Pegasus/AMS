@@ -49,27 +49,30 @@ session_start();
 
 
 if(isset($_POST['submit'])){
-    $uname=$_SESSION['username'];
+    $uname=$_POST['username'];
    
 $op=$_POST['opwd'];
 $np=$_POST['npwd'];
 $cp=$_POST['cpwd'];
 if($np!=$cp){
-    echo "New and Con not matching";
+    echo "New password and confirm new password are not matching ";
 }
 else{
-    $sql="select * from login where username='$uname' AND password='$op'";
+    $sql="select * from login where username='".$uname."'AND password='".$op."' limit 1";
+    
     $result=mysqli_query($con,$sql);
+     
     if(mysqli_num_rows($result)>0){
+      
         $sql="update login set password='$np' where username='$uname' AND password='$op'";
         if(mysqli_query($con,$sql)){
-        echo "Pass changes successfully";}
+        echo "Password changed successfully";}
         else{
-            echo "failed";
+            echo "Failed to change password, Try again";
         }
     }
     else{
-        echo"try again";
+        echo "Incorect Old password";
     }
 }
     
