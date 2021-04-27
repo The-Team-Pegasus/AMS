@@ -1,3 +1,9 @@
+<?php 
+session_start();
+
+if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
+
+ ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,13 +13,11 @@
             .facultydb{
                 background: url(img/pic4.jpeg);
             }
-            iframe{
-                top: 90%;
-    left: 47%;
-            }
+
             label{
                 font-size:15px;
             }
+
         </style>
     </head>
     <header>
@@ -29,35 +33,45 @@
     </header>
     <body class="facultydb">
         <div class="label1">
-<<<<<<< HEAD
-        <label ><b>DATE:</label>
-  <input type="date" id="" name=""><br>
-=======
-        <label for=""><b>DATE:</label>
-  <input type="date" name=""><br>
->>>>>>> c76ae81654c2b8a50871a8f34f70bfee56515688
-        <label for="Section"><b>CHOOSE A SECTION:</label>
+            <form>
+                <label for="Date"><b>DATE :</b></label><br>
+                <input type="date" name="date"><br>
 
-        <select name="Section" id="Section">
-            <option value="none">-Select-</option>
-            <option value="class1">CLASS-1</option>
-            <option value="class2">CLASS-2</option>
-            <option value="class3">CLASS-3</option>
-            <option value="class4">CLASS-4</option>
-        </select>
-        <br>
-        <label for="Subject"><b>CHOOSE A SUBJECT:</label>
+                <label for="Section"><b>CHOOSE A SECTION :</b></label><br>
+                <select name="Section" id="Section">
+                    <option value="none">-Select-</option>
+                    <option value="class1">CLASS-1</option>
+                    <option value="class2">CLASS-2</option>
+                    <option value="class3">CLASS-3</option>
+                    <option value="class4">CLASS-4</option>
+                </select>
+                <br>
 
-        <select name="Subject" id="Subject">
-            <option value="none">-Select-</option>
-            <option value="maths">MATHS</option>
-            <option value="english">ENGLISH</option>
-            <option value="science">SCIENCE</option>
-            <option value="social">SOCIAL STUDIES</option>
-        </select>
-        <input type="submit" name="" value="Submit">
-    </div>
-    
+                <label for="Subject"><b>CHOOSE A SUBJECT :</b></label><br>
+                <select name="Subject" id="Subject">
+                    <option value="none">-Select-</option>
+                    <option value="maths">MATHS</option>
+                    <option value="english">ENGLISH</option>
+                    <option value="science">SCIENCE</option>
+                    <option value="social">SOCIAL STUDIES</option>
+                </select>
+                <br>
+                <input type="submit" name="" value="Submit">
+            </form>
+        </div>
+        <div class="markattendance">
         <iframe src="markattendance.php" height="300" width="800" title="MA"></iframe>
+        </div>
+    
+
     </body>
 </html>
+<?php 
+}else{
+     header("Location: index.php");
+     exit();
+}
+ ?>
+
+
+<?php 

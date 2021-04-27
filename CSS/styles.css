@@ -172,12 +172,30 @@ h1{
     background-position-y: unset;
 }
 
+.label1 form{
+    height:300px;
+    width: 240px;
+    background-color: rgb(0, 0, 0);
+    padding: 30px 30px 15px 30px;
+}
+.label1 input[type="date"]{
+    padding-left: 20px;
+    margin-bottom: 15px;
+    margin-left: 15px;
+    margin-top: 15px;
+    width:70%;
+    height: 30px;
+    background: transparent;
+    border: 2px solid  wheat;
+    color: wheat;
+}
+
 .facultydb iframe{
    
     background: black;
     color: whitesmoke;
-    top: 90%;
-    left: 47%;
+    top: 55%;
+    left: 65%;
     position: absolute;
     transform: translate(-50%,-50%);
     box-sizing: border-box;
@@ -186,8 +204,8 @@ h1{
 }
 
 .label1 {
-    top: 25%;
-    left:35%;
+    top: 32%;
+    left:5%;
     position: absolute;
     color: white;
 }
@@ -201,10 +219,15 @@ h1{
     width: 40%;
     height: 30px;
     font-size: 20px;
-    margin: 10px;
+    margin: 18px;
     border: none;
     background-color: transparent;
+    color: wheat;
     border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+.label1 option{
+    color: black;
 }
 .topnav1 {
     background-color: rgb(21, 127, 226);
@@ -255,12 +278,12 @@ a:hover{
     height: 44px;
     width: 70px;
     position: absolute;
-    top: 110%;
-    left: 50%;
+    top: 80%;
+    left: 35%;
     background: #fb2525;
     color: #fff;
     font-size: 18px;
-    margin-top: 18px;
+    margin-top: 10px;
 }
 
 .label1 input[type="submit"]:hover{
