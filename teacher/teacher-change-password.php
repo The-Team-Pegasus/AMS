@@ -1,66 +1,63 @@
-<?php 
+<?php
+
+ob_start();
 session_start();
-
+echo isset($_SESSION['id']) ;
 if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
+?>
 
- ?>
+<?php include('connect.php');?>
 
 <!DOCTYPE html>
 <html>
     <head>
-        <title>AMS faculty change password</title>
+        <title>AMS student change password</title>
         <link rel="stylesheet" type="text/css" href="./CSS/styles.css">
         <style>
-            .fchangepwd{
-                background: url(img/pic4.jpeg);
+            .schangepwd{
+                background: url(img/pic2.jpeg);
             }
         </style>
     </head>
     <header>
-        <div class="topnav">
-            <h1>Faculty Dashboard</h1>
-            <ul>
-                <li><a href="facultyDB.php">Mark Attendance</a></li>
-                <li><a href="search-student.php">Search Student</a></li>
-                <li><a href="#">Change Password</a></li>
-                <li><a href="index.php">Log Out</a></li>
-            </ul>
-        </div>
-    </header>
+    <h1>Faculty Dashboard</h1>
+  <div class="navbar">
+  <a href="students.php">Students</a>
+  <a href="attendance.php">Attendance</a>
+  <a href="report.php">Report</a>
+  <a href="teacher-change-password.php">Change Password</a>
+  <a href="../logout.php">Logout</a>
 
-    <body class="fchangepwd">
-        <div class="fcpwd">
+</div>
+    </header>
+    <body class="schangepwd">
+        <div class="scpwd">
             <h2>Change Password</h2>
             <form method="POST" >
-                <p>Old Password</p>
+         
+               <p>Old Password</p>
                 <input type="password" name="opwd" placeholder="enter old password">
                 <p>New Password</p>
                 <input type="password" name="npwd" placeholder="enter new password">
                 <p>Confirm new Password</p>
                 <input type="password" name="cpwd" placeholder="re-enter new password">
                 <input type="submit" name="submit" value="Change">
-
             </form>
         </div>
     </body>
 </html>
 <?php 
+
 }else{
-     header("Location: index.php");
+     header("Location: ../index.php");
      exit();
 }
  ?>
 
 
+ 
+
 <?php 
-
-$host="localhost";
-$user="root";
-$password="";
-$db="ams";
-
-$con=  mysqli_connect($host,$user,$password);
-mysqli_select_db($con,$db);
 
 
 
@@ -74,10 +71,10 @@ if($np!=$cp){
     echo "New password and confirm new password are not matching";
 }
 else{
-    $sql="select * from login where username='$uname' AND password='$op'";
+    $sql="select * from admininfo where username='$uname' AND password='$op'";
     $result=mysqli_query($con,$sql);
     if(mysqli_num_rows($result)>0){
-        $sql="update login set password='$np' where username='$uname' AND password='$op'";
+        $sql="update admininfo set password='$np' where username='$uname' AND password='$op'";
         if(mysqli_query($con,$sql)){
         echo "Password changed successfully";}
         else{
