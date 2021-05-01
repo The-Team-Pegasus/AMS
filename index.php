@@ -1,126 +1,164 @@
-<?php 
+<?php
 session_start();
-$host="localhost";
-$user="root";
-$password="";
-$db="ams";
+if(isset($_POST['login']))
+{
+	//start of try block
 
-$con=  mysqli_connect($host,$user,$password);
-mysqli_select_db($con,$db);
+	try{
 
-if(isset($_POST['username']) && isset($_POST['password'])){
-    
-    $uname=$_POST['username'];
-    $password=$_POST['password'];
+		//checking empty fields
+		if(empty($_POST['username'])){
+			throw new Exception("Username is required!");
+			
+		}
+		if(empty($_POST['password'])){
+			throw new Exception("Password is required!");
+			
+		}
+		//establishing connection with db and things
+		include ('connect.php');
+		
+		//checking login info into database
+		$r=0;
+		$result=mysqli_query($con,"select * from admininfo where username='$_POST[username]' and password='$_POST[password]' and type='$_POST[type]'");
 
-    if (empty($uname)) {
-		header("Location: index.php?error=<h4>⚠️UserId is required</h4>");
-	    exit();
-	}else if(empty($password)){
-        header("Location: index.php?error=<h4>⚠️Password is required</h4>");
-	    exit();
-	}
-    else{
-    $sql="select * from login where username='".$uname."'AND password='".$password."' limit 1";
-    
-    $result=mysqli_query($con,$sql);
-    $sub_string = substr($uname, 0, 3);
+		$r=mysqli_num_rows($result);
 
-    if(mysqli_num_rows($result)==1 && $sub_string=='FAC' ){
-        session_start();
-        $row = mysqli_fetch_assoc($result);
-            if ($row['username'] == $uname && $row['password'] == $password) {
-            	$_SESSION['username'] = $row['username'];
+		if($r>0 && $_POST["type"] == 'teacher'){
+			$row = mysqli_fetch_assoc($result);
+			if ($row['username'] == $_POST['username'] && $row['password'] == $_POST['password']) {
+            	$_SESSION['name']="oasis";
+			$_SESSION['username'] = $row['username'];
             
             	$_SESSION['id'] = $row['id'];
-            	header("Location: facultyDB.php");
+			header('location: teacher/attendance.php');
 		        exit();
-            }else{
-                header("Location: index.php?error=<h4>❌Incorect UserId or password</h4>");
-                exit();
-        
 			}
+		}
 
-    }
-    else if(mysqli_num_rows($result)==1 && $sub_string=='STU'){
-        session_start();
-        $row = mysqli_fetch_assoc($result);
-            if ($row['username'] == $uname && $row['password'] == $password) {
-            	$_SESSION['username'] = $row['username'];
+		else if($r>0 &&  $_POST["type"] == 'student'){
+		
+			$row = mysqli_fetch_assoc($result);
+			if ($row['username'] == $_POST['username'] && $row['password'] == $_POST['password']) {
+            	$_SESSION['name']="oasis";
+			$_SESSION['username'] = $row['username'];
+            
             	$_SESSION['id'] = $row['id'];
-            	header("Location: studentDB.php");
+			header('location: student/report.php');
 		        exit();
-            }
-            else{
-                header("Location: index.php?error=<h4>❌Incorect UserId or Password</h4>");
-                exit();
-        
 			}
+		}
 
-    }
-    else{
-        header("Location: index.php?error=<h4>❌Incorect UserId or password</h4>");
-        exit();
-    }
-        
+		else if($r>0 && $_POST["type"] == 'admin'){
+			$row = mysqli_fetch_assoc($result);
+			if ($row['username'] == $_POST['username'] && $row['password'] == $_POST['password']) {
+            	$_SESSION['name']="oasis";
+			$_SESSION['username'] = $row['username'];
+            
+            	$_SESSION['id'] = $row['id'];
+			header('location: admin/index.php');
+		        exit();
+			}
+		}
+
+		else{
+			throw new Exception("Username,Password or Role is wrong, try again!");
+			
+			header('location: login.php');
+		}
+	}
+
+	//end of try block
+	catch(Exception $e){
+		$error_msg=$e->getMessage();
+	}
+	//end of try-catch
 }
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Pegasus Attendance Management System</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+	 
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
+	 
+	<link rel="stylesheet" href="styles.css" >
+	 
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+	<center>
+
+<header>
+
+  <h1>Pegasus Attendance Management System </h1>
+
+</header>
+
+<h1>Login</h1>
+
+<?php
+//printing error message
+if(isset($error_msg))
+{
+	echo $error_msg;
 }
 ?>
 
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <title>Pegsus School Login</title>
-    <link rel="stylesheet" href="./CSS/styles2.css">
-   
-  </head>
-  <body>
-    <section class="form my-5 mx-5 ">
-        <div class=container>
-            <div class= "row ">
-                <div class="col-lg-6">
-                    <img src="./img/BG2.jpeg" class="img-fluid " alt=""></img>
-                                  </div>
-                                  <div class=" col-lg-6 px-5 pt-5">
-                                    <h1 class="font-weight-bold py-3">Pegasus Secondary School</h1>
-                                    <h3>Sign into your account</h3>
-                                    <form method="POST" action="#">
-                                    <?php if (isset($_GET['error'])) { ?>
-     		<p class="error"><?php echo $_GET['error']; ?></p>
-     	<?php } ?>
-                                        <div class="form-row">
-                                            <div class="col-lg-7">
-                                                <input type="text" name="username" placeholder="User Id" class="form-control my-3 p-3">
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                          <div class="col-lg-7">
-                                              <input type="password" name="password" placeholder="Enter password" class="form-control my-3 p-3">
-                                          </div>
-                                      </div>
-                                      <div class="form-row">
-                                          <div class="col-lg-7">
-                                              <button type="button mt-5 mb-3 p-3" name="submit" class="btn1">Login</button>
-                                          </div>
-                                      </div>
-                                      <br>
-                                      <a href="#">Forget password</a>
-                                      <p>Dont have an account? <br>please visit school's administration office</p>
-                                    </form>
-                                </div>
-            </div>
-        </div>
-  </section>
-  
+<div class="content">
+	<div class="row">
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>   
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+		<form method="post" class="form-horizontal col-md-6 col-md-offset-3">
+			<div class="form-group">
+			    <label for="input1" class="col-sm-3 control-label">Username</label>
+			    <div class="col-sm-7">
+			      <input type="text" name="username"  class="form-control" id="input1" placeholder="your username" />
+			    </div>
+			</div>
 
-  </body>
+			<div class="form-group">
+			    <label for="input1" class="col-sm-3 control-label">Password</label>
+			    <div class="col-sm-7">
+			      <input type="password" name="password"  class="form-control" id="input1" placeholder="your password" />
+			    </div>
+			</div>
+
+
+			<div class="form-group" class="radio">
+			<label for="input1" class="col-sm-3 control-label">Role</label>
+			<div class="col-sm-7">
+			  <label>
+			    <input type="radio" name="type" id="optionsRadios1" value="student" checked> Student
+			  </label>
+			  	  <label>
+			    <input type="radio" name="type" id="optionsRadios1" value="teacher"> Teacher
+			  </label>
+			  <label>
+			    <input type="radio" name="type" id="optionsRadios1" value="admin"> Admin
+			  </label>
+			</div>
+			</div>
+
+
+			<input type="submit" class="btn btn-primary col-md-3 col-md-offset-7" value="Login" name="login" />
+		</form>
+	</div>
+</div>
+
+
+
+<br><br>
+
+</center>
+</body>
 </html>
