@@ -74,6 +74,7 @@ if($_SESSION['name']!='oasis')
   <a href="students.php">Students</a>
   <a href="attendance.php">Attendance</a>
   <a href="report.php">Report</a>
+  <a href="teacher-change-password.php">Chnage Password</a>
   <a href="../logout.php">Logout</a>
 
 </div>
