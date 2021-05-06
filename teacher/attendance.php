@@ -65,7 +65,10 @@ if($_SESSION['name']!='oasis')
 </style>
 
 </head>
-<body>
+<body style="background-image: url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+			background-repeat: no-repeat;
+			background-attachment:fixed;
+			background-size:cover;">
 
 <header>
 
@@ -74,7 +77,7 @@ if($_SESSION['name']!='oasis')
   <a href="students.php">Students</a>
   <a href="attendance.php">Attendance</a>
   <a href="report.php">Report</a>
-  <a href="teacher-change-password.php">Chnage Password</a>
+  <a href="teacher-change-password.php">Change Password</a>
   <a href="../logout.php">Logout</a>
 
 </div>
@@ -83,9 +86,9 @@ if($_SESSION['name']!='oasis')
 
 <center>
 
-<div class="row">
+<div class="row" style="background:transparent">
 
-  <div class="content">
+  <div class="content" style="background:transparent" >
     <h3>Attendance of <?php echo date('Y-m-d'); ?></h3>
     <br>
 
@@ -93,8 +96,7 @@ if($_SESSION['name']!='oasis')
     
     <form action="" method="POST" class="form-horizontal col-md-6 col-md-offset-3">
 
-     <div class="form-group">
-
+    <div class="form-group">
                <!-- <label>Select Batch</label>
                 
                 <select name="whichbatch" id="input1">
@@ -103,21 +105,24 @@ if($_SESSION['name']!='oasis')
                 </select>-->
 
 
-                <label>Enter Batch</label>
-                <input type="text" name="whichbatch" id="input2" placeholder="Enter">
-              </div>
+                <label class="col-sm-3 control-label" >Enter Class</label>
+                <div class="col-sm-7">
+                  <input class="form-control" type="text" name="whichbatch" id="input2" placeholder="Enter class">
+                </div>
+    </div>
                
      <input type="submit" class="btn btn-primary col-md-2 col-md-offset-5" value="Show!" name="batch" />
 
     </form>
 
-    <div class="content"></div>
-    <form action="" method="post">
+    <div class="content" style="background:transparent"></div>
+    <form action="" method="post" class="form-horizontal col-md-8 col-md-offset-2">
 
-      <div class="form-group">
+      <div class=" form-group">
 
-        <label >Select Subject</label>
-              <select name="whichcourse" id="input1">
+        <label class=" col-sm-4 control-label">Select Subject</label>
+        <div class=" col-sm-4">
+              <select class="form-control" name="whichcourse" id="input1">
               <option  value="maths1">Maths-1</option>
          <option  value="maths2">Maths-2</option>
         <option  value="physics">Physics</option>
@@ -129,15 +134,17 @@ if($_SESSION['name']!='oasis')
         <option  value="softskills">Soft Skills</option>
 
               </select>
+        </div>
 
       </div>
+      <br><br>
 
-    <table class="table table-stripped">
+    <table class="table table-stripped" style="background:white; opacity:0.8">
       <thead>
         <tr>
-          <th scope="col">Reg. No.</th>
+          <th scope="col">Roll No.</th>
           <th scope="col">Name</th>
-          <th scope="col">Batch</th>
+          <th scope="col">Class</th>
           <th scope="col">E-mail</th>
           <th scope="col">Status</th>
         </tr>

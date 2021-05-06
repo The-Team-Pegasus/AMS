@@ -33,14 +33,16 @@ if($_SESSION['name']!='oasis')
 <!-- head ended -->
 
 <!-- body started -->
-<body>
+<body style="background-image: url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+			background-repeat: no-repeat;
+			background-attachment:fixed;
+			background-size:cover;">
 
 <!-- Menus started-->
 <header>
   <h1>Student Dashboard</h1>
   <div class="navbar">
   <a href="report.php">My Report</a>
-  
   <a href="student-change-password.php">Change Password</a>
   <a href="../logout.php">Logout</a>
 
@@ -54,44 +56,44 @@ if($_SESSION['name']!='oasis')
 <!-- Content, Tables, Forms, Texts, Images started -->
 <div class="row">
 
-  <div class="content">
+  <div class="content" style="background:transparent">
     <h3>Student Report</h3>
     <br>
     <form method="post" action="" class="form-horizontal col-md-6 col-md-offset-3">
 
   <div class="form-group">
 
-    <label  for="input1" class="col-sm-3 control-label">Select Subject</label>
-      <div class="col-sm-4">
-      <select name="whichcourse" id="input1">
-         <option  value="maths1">Maths-1</option>
-         <option  value="maths2">Maths-2</option>
-        <option  value="physics">Physics</option>
-        <option  value="physicslab">Physics Lab</option>
-        <option  value="chemistry">Chemistry</option>
-        <option  value="chemistrylab">Chemistry Lab</option>
-        <option  value="biology">Biology</option>
-        <option  value="english">English</option>
-        <option  value="softskills">Soft Skills</option>
+      <label  for="input1" class="col-sm-3 control-label">Select Subject</label>
+        <div class="col-sm-7">
+        <select class="form-control" name="whichcourse" id="input1">
+          <option  value="maths1">Maths-1</option>
+          <option  value="maths2">Maths-2</option>
+          <option  value="physics">Physics</option>
+          <option  value="physicslab">Physics Lab</option>
+          <option  value="chemistry">Chemistry</option>
+          <option  value="chemistrylab">Chemistry Lab</option>
+          <option  value="biology">Biology</option>
+          <option  value="english">English</option>
+          <option  value="softskills">Soft Skills</option>
 
-      </select>
-      </div>
+        </select>
+        </div>
 
-  </div>
+    </div>
 
-        <div class="form-group">
+    <div class="form-group">
            <label for="input1" class="col-sm-3 control-label">Your Roll No.</label>
               <div class="col-sm-7">
                   <input type="text" name="sr_id"  class="form-control" id="input1" placeholder="enter your roll no." />
               </div>
-        </div>
+    </div>
         <input type="submit" class="btn btn-primary col-md-3 col-md-offset-7" value="Go!" name="sr_btn" />
     </form>
+    <br>
+    <br>
 
-    <div class="content"><br></div>
-
-    <form method="post" action="" class="form-horizontal col-md-6 col-md-offset-3">
-    <table class="table table-striped">
+    <form method="post" action="" class="form-horizontal col-md-6 col-md-offset-3"><br><br>
+    <table class="table table-striped rounded-sm" style="background:white; opacity:0.8">
 
    <?php
 
@@ -127,7 +129,7 @@ if($_SESSION['name']!='oasis')
 
      <tbody>
       <tr>
-          <td>Registration No.: </td>
+          <td>Roll No. : </td>
           <td><?php echo $data['stat_id']; ?></td>
       </tr>
 

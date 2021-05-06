@@ -80,7 +80,10 @@ include('connect.php');
 <!-- head ended -->
 
 <!-- body started -->
-<body>
+<body style="background-image: url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+			background-repeat: no-repeat;
+			background-attachment:fixed;
+			background-size:cover;">
 
     <!-- Menus started-->
     <header>
@@ -106,7 +109,7 @@ include('connect.php');
        
      </p>
      <br>
-<div class="content">
+<div class="content" style="background:transparent">
 
   <div class="row">
    

@@ -30,7 +30,10 @@ if($_SESSION['name']!='oasis')
 </style>
 
 </head>
-<body>
+<body style="background-image: url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+			background-repeat: no-repeat;
+			background-attachment:fixed;
+			background-size:cover;">
 
 <header>
 
@@ -51,21 +54,25 @@ if($_SESSION['name']!='oasis')
 
 <div class="row">
 
-  <div class="content">
-    <h3>Student List</h3>
+  <div class="content" style="background:transparent">
+    <h3>Students List</h3>
     <br>
-    <form method="post" action="">
-      <label>Batch</label>
-      <input type="text" name="sr_batch">
-      <input type="submit" name="sr_btn" value="Go!" >
+    <form method="post" action="" class="form-horizontal col-md-6 col-md-offset-3">
+      <label class="col-sm-3 control-label">Class</label>
+      <div class="col-sm-7">
+      <input class="form-control" type="text" name="sr_batch">
+      <br>
+      </div>
+      <input class="btn btn-primary col-md-2 col-md-offset-5" type="submit" name="sr_btn" value="Go!" >
     </form>
+    <div class="col-md-8 col-md-offset-2">
     <br>
-    <table class="table table-stripped">
+    <table class="table table-stripped" style="background:white; opacity:0.8">
       <thead>
         <tr>
           <th scope="col">Roll No.</th>
           <th scope="col">Name</th>
-          <th scope="col">Batch</th>
+          <th scope="col">Class</th>
           <th scope="col">Email</th>
         </tr>
       </thead>
@@ -98,6 +105,7 @@ if($_SESSION['name']!='oasis')
       ?>
       
     </table>
+    </div>
 
   </div>
 

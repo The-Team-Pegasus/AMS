@@ -30,7 +30,7 @@ include('connect.php');
         if(isset($_POST['tcr'])){
 
           //teachers data insertion to the database table "teachers"
-          $res = mysqli_query($con,"insert into teachers(tc_id,tc_name,tc_dept,tc_email,tc_course) values('$_POST[tc_id]','$_POST[tc_name]','$_POST[tc_dept]','$_POST[tc_email]','$_POST[tc_course]')");
+          $res = mysqli_query($con,"insert into teachers(tc_id,tc_name,tc_dept,tc_email) values('$_POST[tc_id]','$_POST[tc_name]','$_POST[tc_dept]','$_POST[tc_email]')");
           $success_msg = "Teacher added successfully.";
     }
 
@@ -74,7 +74,10 @@ include('connect.php');
 <!-- head ended -->
 
 <!-- body started -->
-<body>
+<body style="background-image: url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+			background-repeat: no-repeat;
+			background-attachment:fixed;
+			background-size:cover;">
 
     <!-- Menus started-->
     <header>
@@ -99,7 +102,7 @@ include('connect.php');
 <!-- Error or Success Message printint ended -->
 
 <!-- Content, Tables, Forms, Texts, Images started -->
-<div class="content">
+<div class="content" style="background:transparent">
 
   
 

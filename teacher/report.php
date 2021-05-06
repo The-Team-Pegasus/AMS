@@ -29,7 +29,10 @@ if($_SESSION['name']!='oasis')
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
-<body>
+<body style="background-image: url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+			background-repeat: no-repeat;
+			background-attachment:fixed;
+			background-size:cover;">
 
 <header>
 
@@ -49,35 +52,39 @@ if($_SESSION['name']!='oasis')
 
 <div class="row">
 
-  <div class="content">
-    <h3>Student Report</h3>
+  <div class="content" style="background:transparent">
+  <h3>Student Report</h3>
 
-    <form method="post" action="">
+    <form method="post" action="" class="form-horizontal col-md-6 col-md-offset-3">
 
-    <label>Select Subject</label>
-    <select name="whichcourse">
-    <option  value="maths1">Maths-1</option>
-        <option  value="maths2">Maths-2</option>
-        <option  value="physics">Physics</option>
-        <option  value="physicslab">Physics Lab</option>
-        <option  value="chemistry">Chemistry</option>
-        <option  value="chemistrylab">Chemistry Lab</option>
-        <option  value="biology">Biology</option>
-        <option  value="english">English</option>
-        <option  value="softskills">Soft Skills</option>
-    </select>
+    <div class="form-group">
+      <label class=" col-sm-4 control-label">Select Subject</label>
+      <div class=" col-sm-4">
+        <select class="form-control" name="whichcourse">
+        <option  value="maths1">Maths-1</option>
+            <option  value="maths2">Maths-2</option>
+            <option  value="physics">Physics</option>
+            <option  value="physicslab">Physics Lab</option>
+            <option  value="chemistry">Chemistry</option>
+            <option  value="chemistrylab">Chemistry Lab</option>
+            <option  value="biology">Biology</option>
+            <option  value="english">English</option>
+            <option  value="softskills">Soft Skills</option>
+        </select>
+      </div>
+</div>
 
       <p>  </p>
-      <label>Student Roll No.</label>
-      <input type="text" name="sr_id">
-      <input type="submit" name="sr_btn" value="Go!" >
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Student Roll No.</label>
+        <div class="col-sm-7">
+        <input class="form-control" type="text" name="sr_id">
+      </div>
+      </div>
+      <input type="submit" class="btn btn-primary col-md-2 col-md-offset-5" name="sr_btn" value="Go!" ><br>
 
     </form>
-    <br>
-    <br>
-    <br>
-
-    <br>
+   
 
    <?php
 
@@ -101,11 +108,11 @@ if($_SESSION['name']!='oasis')
     if(isset($_POST['sr_date'])){
 
       ?>
-
-    <table class="table table-stripped">
+    <div>
+    <table class="table table-stripped" style="background:white; opacity:0.8">
       <thead>
         <tr>
-          <th scope="col">Reg. No.</th>
+          <th scope="col">Roll No.</th>
           <th scope="col">Name</th>
           <th scope="col">Department</th>
           <th scope="col">Batch</th>
@@ -139,10 +146,10 @@ if($_SESSION['name']!='oasis')
      ?>
      
     </table>
-
+    </div>
 
     <form method="post" action="" class="form-horizontal col-md-6 col-md-offset-3">
-    <table class="table table-striped">
+    <table class="table table-striped" style="background:white; opacity:0.8">
 
     <?php
 
@@ -165,7 +172,7 @@ if($_SESSION['name']!='oasis')
 
      <tbody>
       <tr>
-          <td>Student Reg. No: </td>
+          <td>Student Roll No: </td>
           <td><?php echo $data['stat_id']; ?></td>
       </tr>
 

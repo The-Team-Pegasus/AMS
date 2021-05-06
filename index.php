@@ -80,7 +80,7 @@ if(isset($_POST['login']))
 <!DOCTYPE html>
 <html>
 <head>
-
+	<br><br><br><br><br><br>
 	<title>Pegasus Attendance Management System</title>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	
@@ -95,15 +95,18 @@ if(isset($_POST['login']))
 
 </head>
 
-<body>
+<body style="background-image: url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+			background-repeat: no-repeat;
+			background-attachment:fixed;
+			background-size:cover;">
 	<center>
-
+<div class="text-center" style="margin-bottom:0">
 <header>
 
   <h1>Pegasus Attendance Management System </h1>
 
 </header>
-
+</div>
 <h1>Login</h1>
 
 <?php
@@ -115,7 +118,7 @@ if(isset($error_msg))
 ?>
 
 
-<div class="content">
+<!-- <div class="content"> -->
 	<div class="row">
 
 		<form method="post" class="form-horizontal col-md-6 col-md-offset-3">
@@ -150,15 +153,21 @@ if(isset($error_msg))
 			</div>
 
 
-			<input type="submit" class="btn btn-primary col-md-3 col-md-offset-7" value="Login" name="login" />
+			<input type="submit" class="btn btn-primary col-md-3 col-md-offset-5" value="Login" name="login" />
 		</form>
 	</div>
-</div>
+<!-- </div> -->
 
 
 
 <br><br>
-
+<!--<p>hello</p><br>
+<p>hello</p><br>
+<p>hello</p><br>
+<p>hello</p><br>
+<p>hello</p><br>
+<p>hello</p><br>
+<p>hello</p><br><p>hello</p><br><p>hello</p><br><p>hello</p><br><p>hello</p><br><p>hello</p><br><p>hello</p><br>-->
 </center>
 </body>
 </html>
