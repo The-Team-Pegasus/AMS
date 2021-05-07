@@ -106,7 +106,13 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
           <input class="form-control" type="password" name="cpwd" placeholder="re-enter new password">
           </div>
       </div>
-    <br>
+      <div class="col-sm-3"></div>
+        <div class="col-sm-9">
+        <?php if(isset($_GET['error'])){?>
+        <p class="error"><?php echo $_GET['error']; ?></p>
+
+       <?php } ?>
+    </div>
       <input type="submit" class="btn btn-primary col-md-2 col-md-offset-5" value="submit" name="submit" />
     </form>
 
@@ -134,25 +140,43 @@ if(isset($_POST['submit'])){
 $op=$_POST['opwd'];
 $np=$_POST['npwd'];
 $cp=$_POST['cpwd'];
-if($np!=$cp){
-    echo "New password and confirm new password are not matching";
+if(empty($op)){
+    header("Location: student-change-password.php?error=<b>Old Password Required⚠️");
+    exit();
+}
+elseif(empty($np)){
+    header("Location: student-change-password.php?error=<b>New Password Required⚠️");
+    exit();
+}
+
+
+elseif($np!=$cp){
+    header("Location: student-change-password.php?error=<b>New Password and Confirm New Password are not matching❌");
+    exit();
+}
+elseif($op==$np){
+    header("Location: student-change-password.php?error= <b>Your New Password is same as Old Password!");
+    exit();
 }
 else{
     $sql="select * from admininfo where username='$uname' AND password='$op'";
     $result=mysqli_query($con,$sql);
     if(mysqli_num_rows($result)>0){
         $sql="update admininfo set password='$np' where username='$uname' AND password='$op'";
-        if(mysqli_query($con,$sql)){
-        echo "Password changed successfully";}
+        if(mysqli_query($con,$sql)){header("Location: student-change-password.php?error=<b><b>Password changed successfully✅");
+            exit();
+
+    }
         else{
-            echo "Failed to change password, Try again";
+            header("Location: student-change-password.php?error=<b>Failed to change password, Try again⚠️");
+            exit();
         }
     }
     else{
-        echo "Incorect Old password";
+        header("Location: student-change-password.php?error=<b>Incorrect Old Password❌");
+        exit();
     }
 }
     
 }
-
 ?>
