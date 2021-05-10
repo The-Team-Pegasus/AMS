@@ -13,32 +13,29 @@ if($_SESSION['name']!='oasis')
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- head started -->
+
 <head>
 <title>Online Attendance Management System 1.0</title>
 <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="../css/main.css">
-  <!-- Latest compiled and minified CSS -->
+  
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
    
-  <!-- Optional theme -->
+  
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
    
   <link rel="stylesheet" href="styles.css" >
    
-  <!-- Latest compiled and minified JavaScript -->
+
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
-<!-- head ended -->
-
-<!-- body started -->
 <body style="background-image: url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
 			background-repeat: no-repeat;
 			background-attachment:fixed;
 			background-size:cover;">
 
-<!-- Menus started-->
 <header>
   <h1>Student Dashboard</h1>
   <div class="navbar">
@@ -49,11 +46,10 @@ if($_SESSION['name']!='oasis')
 </div>
 
 </header>
-<!-- Menus ended -->
+
 
 <center>
 
-<!-- Content, Tables, Forms, Texts, Images started -->
 <div class="row">
 
   <div class="content" style="background:transparent">
@@ -87,7 +83,14 @@ if($_SESSION['name']!='oasis')
                   <input type="text" name="sr_id"  class="form-control" id="input1" placeholder="enter your roll no." />
               </div>
     </div>
-        <input type="submit" class="btn btn-primary col-md-3 col-md-offset-7" value="Go!" name="sr_btn" />
+    <div class="col-sm-5"></div>
+        <div class="col-sm-7">
+        <?php if(isset($_GET['error'])){?>
+        <p class="error"><?php echo $_GET['error']; ?></p>
+
+       <?php } ?>
+    </div>
+        <input type="submit" class="btn btn-primary col-md-2 col-md-offset-7" value="Go!" name="sr_btn" />
     </form>
     <br>
     <br>
@@ -97,22 +100,38 @@ if($_SESSION['name']!='oasis')
 
    <?php
 
-    //checking the form for ID
+
     if(isset($_POST['sr_btn'])){
 
-    //initializing ID 
+      
      $sr_id = $_POST['sr_id'];
      $course = $_POST['whichcourse'];
 
      $i=0;
      $count_pre = 0;
      
-     //query for searching respective ID
-    //  $all_query = mysql_query("select * from reports where reports.st_id='$sr_id' and reports.course = '$course'");
-    //  $count_tot = mysql_num_rows($all_query);
-     $all_query = mysqli_query($con,"select stat_id,count(*) as countP from attendance where attendance.stat_id='$sr_id' and attendance.course = '$course' and attendance.st_status='Present'");
+
+
+    if(empty($sr_id)){
+      header("Location: report.php?error=<b>Roll No. Required⚠️");
+      exit();
+    }
+
+    $result=mysqli_query($con,"select * from students where st_id='$_POST[sr_id]'");
+
+    $r=mysqli_num_rows($result);
+
+    if($r<1){
+      header("Location: report.php?error=<b>Enter a valid Roll No⚠️");
+      exit();
+    }
+
+    $all_query = mysqli_query($con,"select stat_id,count(*) as countP from attendance where attendance.stat_id='$sr_id' and attendance.course = '$course' and attendance.st_status='Present'");
+
      $singleT= mysqli_query($con,"select count(*) as countT from attendance where attendance.stat_id='$sr_id' and attendance.course = '$course'");
+
      $count_tot;
+
      if ($row=mysqli_fetch_row($singleT))
      {
      $count_tot=$row[0];
@@ -120,9 +139,9 @@ if($_SESSION['name']!='oasis')
 
      while ($data = mysqli_fetch_array($all_query)) {
        $i++;
-      //  if($data['st_status'] == "Present"){
-      //     $count_pre++;
-      //  }
+     
+
+
        if($i <= 1){
      ?>
         
@@ -160,7 +179,8 @@ if($_SESSION['name']!='oasis')
   </div>
 
 </div>
-<!-- Contents, Tables, Forms, Images ended -->
+
+
 
 </center>
 

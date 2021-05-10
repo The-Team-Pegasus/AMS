@@ -20,24 +20,41 @@ include('connect.php');
     //checking if the data comes from students form
     if(isset($_POST['std'])){
 
+        if(empty($_POST['st_id'])){
+          throw new Exception("Student Roll No. can't be empty!");
+        }
+
+          if(empty($_POST['st_name'])){
+             throw new Exception("Student name can't be empty!");
+          }
+
+            if(empty($_POST['st_batch'])){
+               throw new Exception("Student batch must be assigned!");
+            }
+              
+              if(empty($_POST['st_email'])){
+                 throw new Exception("Student email should be added!");
+              }
+               
       //students data insertion to database table "students"
         $result = mysqli_query($con,"insert into students(st_id,st_name,st_batch,st_email) values('$_POST[st_id]','$_POST[st_name]','$_POST[st_batch]','$_POST[st_email]')");
-        $success_msg = "Student added successfully.";
+        $success_msg = "Student added successfully!";
 
-    }
+    
 
         //checking if the data comes from teachers form
         if(isset($_POST['tcr'])){
 
           //teachers data insertion to the database table "teachers"
           $res = mysqli_query($con,"insert into teachers(tc_id,tc_name,tc_dept,tc_email) values('$_POST[tc_id]','$_POST[tc_name]','$_POST[tc_dept]','$_POST[tc_email]')");
-          $success_msg = "Teacher added successfully.";
+          $success_msg = "Teacher added successfully!";
     }
 
   }
-  catch(Execption $e){
-    $error_msg =$e->getMessage();
-  }
+}
+catch(Exception $e){
+  $error_msg =$e->getMessage();
+}
 
  ?>
 
@@ -96,16 +113,25 @@ include('connect.php');
 
 <center>
 <!-- Error or Success Message printint started -->
-<div class="message">
-        <?php if(isset($success_msg)) echo $success_msg; if(isset($error_msg)) echo $error_msg; ?>
-</div>
+<p>    <?php
+    if(isset($success_msg)) echo $success_msg;
+    if(isset($error_msg)) echo $error_msg;
+     ?>
+       
+     </p>
 <!-- Error or Success Message printint ended -->
 
 <!-- Content, Tables, Forms, Texts, Images started -->
 <div class="content" style="background:transparent">
 
   
+<div class="col-sm-0"></div>
+        <div class="col-sm-12">
+        <?php if(isset($_GET['error'])){?>
+        <p class="error"><?php echo $_GET['error']; ?></p>
 
+       <?php } ?>
+    </div>
   <div class="row" id="student">
 
 

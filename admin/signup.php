@@ -13,37 +13,36 @@ if($_SESSION['name']!='oasis')
 
 <?php
 
-//establishing connection
 include('connect.php');
+
 
   try{
 
-    //validation of empty fields
+
       if(isset($_POST['signup'])){
 
         if(empty($_POST['email'])){
-          throw new Exception("Email cann't be empty.");
+          throw new Exception("Email can't be empty.");
         }
 
           if(empty($_POST['uname'])){
-             throw new Exception("Username cann't be empty.");
+             throw new Exception("Username can't be empty.");
           }
 
             if(empty($_POST['pass'])){
-               throw new Exception("Password cann't be empty.");
+               throw new Exception("Password can't be empty.");
             }
               
               if(empty($_POST['fname'])){
-                 throw new Exception("Username cann't be empty.");
+                 throw new Exception("Username can't be empty.");
               }
                 if(empty($_POST['phone'])){
-                   throw new Exception("Username cann't be empty.");
+                   throw new Exception("Username can't be empty.");
                 }
                   if(empty($_POST['type'])){
-                     throw new Exception("Username cann't be empty.");
+                     throw new Exception("Username can't be empty.");
                   }
 
-        //insertion of data to database table admininfo
         $result = mysqli_query($con,"insert into admininfo(username,password,email,fname,phone,type) values('$_POST[uname]','$_POST[pass]','$_POST[email]','$_POST[fname]','$_POST[phone]','$_POST[type]')");
         $success_msg="Signup Successfully!";
 
@@ -59,33 +58,34 @@ include('connect.php');
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- head started -->
+
 <head>
 <title>Pegasus Attendance Management System</title>
 <meta charset="UTF-8">
 
   <link rel="stylesheet" type="text/css" href="../css/main.css">
-  <!-- Latest compiled and minified CSS -->
+
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
    
-  <!-- Optional theme -->
+   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
    
   <link rel="stylesheet" href="styles.css" >
    
-  <!-- Latest compiled and minified JavaScript -->
+   
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
-<!-- head ended -->
 
-<!-- body started -->
+
+
 <body style="background-image: url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
 			background-repeat: no-repeat;
 			background-attachment:fixed;
 			background-size:cover;">
 
-    <!-- Menus started-->
+
     <header>
 
       <h1>Admin Section</h1>
@@ -98,7 +98,8 @@ include('connect.php');
     </div>
 
     </header>
-    <!-- Menus ended -->
+  
+  
 
 <center>
 <h1>Create User</h1>
@@ -170,13 +171,13 @@ include('connect.php');
     </form>
   </div>
     <br>
-    <p><strong>Already have an account? <a href="../index.php">Login</a> here.</strong></p>
-
+ 
 </div>
 
 </center>
 
 </body>
-<!-- Body ended  -->
+
+
 
 </html>
