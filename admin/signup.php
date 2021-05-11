@@ -22,26 +22,21 @@ include('connect.php');
       if(isset($_POST['signup'])){
 
         if(empty($_POST['email'])){
-          throw new Exception("Email can't be empty.");
+          throw new Exception("Email can't be empty!");
         }
 
           if(empty($_POST['uname'])){
-             throw new Exception("Username can't be empty.");
+             throw new Exception("Username can't be empty!");
           }
 
             if(empty($_POST['pass'])){
-               throw new Exception("Password can't be empty.");
+               throw new Exception("Password can't be empty!");
             }
               
               if(empty($_POST['fname'])){
-                 throw new Exception("Username can't be empty.");
+                 throw new Exception("User's Full Name Required!");
               }
-                if(empty($_POST['phone'])){
-                   throw new Exception("Username can't be empty.");
-                }
-                  if(empty($_POST['type'])){
-                     throw new Exception("Username can't be empty.");
-                  }
+                
 
         $result = mysqli_query($con,"insert into admininfo(username,password,email,fname,phone,type) values('$_POST[uname]','$_POST[pass]','$_POST[email]','$_POST[fname]','$_POST[phone]','$_POST[type]')");
         $success_msg="Signup Successfully!";
@@ -119,35 +114,35 @@ include('connect.php');
       <div class="form-group">
           <label for="input1" class="col-sm-3 control-label">Email</label>
           <div class="col-sm-7">
-            <input type="text" name="email"  class="form-control" id="input1" placeholder="your email" />
+            <input type="text" name="email"  class="form-control" id="input1" placeholder="User's Email" />
           </div>
       </div>
 
       <div class="form-group">
           <label for="input1" class="col-sm-3 control-label">Username</label>
           <div class="col-sm-7">
-            <input type="text" name="uname"  class="form-control" id="input1" placeholder="choose username" />
+            <input type="text" name="uname"  class="form-control" id="input1" placeholder="Choose Username" />
           </div>
       </div>
 
       <div class="form-group">
           <label for="input1" class="col-sm-3 control-label">Password</label>
           <div class="col-sm-7">
-            <input type="password" name="pass"  class="form-control" id="input1" placeholder="choose a strong password" />
+            <input type="password" name="pass"  class="form-control" id="input1" placeholder="Assign a password" />
           </div>
       </div>
 
       <div class="form-group">
           <label for="input1" class="col-sm-3 control-label">Full Name</label>
           <div class="col-sm-7">
-            <input type="text" name="fname"  class="form-control" id="input1" placeholder="your full name" />
+            <input type="text" name="fname"  class="form-control" id="input1" placeholder="User's Full name" />
           </div>
       </div>
 
       <div class="form-group">
           <label for="input1" class="col-sm-3 control-label">Phone Number</label>
           <div class="col-sm-7">
-            <input type="text" name="phone"  class="form-control" id="input1" placeholder="your phone number" />
+            <input type="text" name="phone"  class="form-control" id="input1" placeholder="User's phone number" />
           </div>
       </div>
 
@@ -167,7 +162,7 @@ include('connect.php');
       </div>
       </div>
 
-      <input type="submit" class="btn btn-primary col-md-2 col-md-offset-8" value="Signup" name="signup" />
+      <input type="submit" class="btn btn-primary col-md-2 col-md-offset-8" value="Create" name="signup" />
     </form>
   </div>
     <br>

@@ -167,6 +167,11 @@ if($_SESSION['name']!='oasis')
         <td><?php echo $count_tot -  $data[1]; ?> </td>
       </tr>
 
+      <tr>
+        <td>Attendance Percentage: </td>
+        <td><?php echo ($data[1]/$count_tot)*100; echo "%" ?> </td>
+      </tr>
+
     </tbody>
 
    <?php

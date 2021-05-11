@@ -28,16 +28,12 @@ if($_SESSION['name']!='oasis')
         $att_msg = "Attendance Recorded.";
 
       }
-
-
-
     }
   }
   catch(Execption $e){
     $error_msg = $e->$getMessage();
   }
  ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -97,15 +93,7 @@ if($_SESSION['name']!='oasis')
     <form action="" method="POST" class="form-horizontal col-md-6 col-md-offset-3">
 
     <div class="form-group">
-               <!-- <label>Select Batch</label>
-                
-                <select name="whichbatch" id="input1">
-                      <option name="eight" value="38">38</option>
-                      <option name="seven" value="37">37</option>
-                </select>-->
-
-
-                <label class="col-sm-3 control-label" >Enter Class</label>
+         <label class="col-sm-3 control-label" >Enter Class</label>
                 <div class="col-sm-7">
                   <input class="form-control" type="text" name="whichbatch" id="input2" placeholder="Enter class">
                 </div>
@@ -114,7 +102,6 @@ if($_SESSION['name']!='oasis')
      <input type="submit" class="btn btn-primary col-md-2 col-md-offset-5" value="Show!" name="batch" />
 
     </form>
-
     <div class="content" style="background:transparent"></div>
     <form action="" method="post" class="form-horizontal col-md-8 col-md-offset-2">
 
@@ -183,17 +170,12 @@ if($_SESSION['name']!='oasis')
 }
       ?>
     </table>
-
     <center><br>
     <input type="submit" class="btn btn-primary col-md-2 col-md-offset-10" value="Save!" name="att" />
   </center>
-
 </form>
   </div>
-
 </div>
-
 </center>
-
 </body>
 </html>

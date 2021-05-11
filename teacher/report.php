@@ -48,141 +48,111 @@ if($_SESSION['name']!='oasis')
 
 </header>
 
+
 <center>
 
 <div class="row">
 
   <div class="content" style="background:transparent">
-  <h3>Student Report</h3>
-
+    <h3 >Student Report</h3>
+    <br>
     <form method="post" action="" class="form-horizontal col-md-6 col-md-offset-3">
 
-    <div class="form-group">
-      <label class=" col-sm-4 control-label">Select Subject</label>
-      <div class=" col-sm-4">
-        <select class="form-control" name="whichcourse">
-        <option  value="maths1">Maths-1</option>
-            <option  value="maths2">Maths-2</option>
-            <option  value="physics">Physics</option>
-            <option  value="physicslab">Physics Lab</option>
-            <option  value="chemistry">Chemistry</option>
-            <option  value="chemistrylab">Chemistry Lab</option>
-            <option  value="biology">Biology</option>
-            <option  value="english">English</option>
-            <option  value="softskills">Soft Skills</option>
-        </select>
-      </div>
-</div>
+  <div class="form-group">
 
-      <p>  </p>
-      <div class="form-group">
-        <label class="col-sm-3 control-label">Student Roll No.</label>
+      <label  for="input1" class="col-sm-4 control-label">Select Subject</label>
         <div class="col-sm-7">
-        <input class="form-control" type="text" name="sr_id">
-      </div>
-      </div>
-      <input type="submit" class="btn btn-primary col-md-2 col-md-offset-5" name="sr_btn" value="Go!" ><br>
+        <select class="form-control" name="whichcourse" id="input1">
+          <option  value="maths1">Maths-1</option>
+          <option  value="maths2">Maths-2</option>
+          <option  value="physics">Physics</option>
+          <option  value="physicslab">Physics Lab</option>
+          <option  value="chemistry">Chemistry</option>
+          <option  value="chemistrylab">Chemistry Lab</option>
+          <option  value="biology">Biology</option>
+          <option  value="english">English</option>
+          <option  value="softskills">Soft Skills</option>
 
+        </select>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+           <label for="input1" class="col-sm-4 control-label">Student's Roll No.</label>
+              <div class="col-sm-7">
+                  <input type="text" name="sr_id"  class="form-control" id="input1" placeholder="enter student's roll no." />
+              </div>
+    </div>
+    <div class="col-sm-5"></div>
+        <div class="col-sm-7">
+        <?php if(isset($_GET['error'])){?>
+        <p class="error"><?php echo $_GET['error']; ?></p>
+
+       <?php } ?>
+    </div>
+        <input type="submit" class="btn btn-primary col-md-2 col-md-offset-7" value="Go!" name="sr_btn" />
     </form>
-   
+    <br>
+    <br>
+
+    <form method="post" action="" class="form-horizontal col-md-6 col-md-offset-3"><br><br>
+    <table class="table table-striped rounded-sm" style="background:white; opacity:0.8">
 
    <?php
 
+
     if(isset($_POST['sr_btn'])){
 
+      
      $sr_id = $_POST['sr_id'];
      $course = $_POST['whichcourse'];
 
-     $single = mysqli_query($con,"select stat_id,count(*) as countP from attendance where attendance.stat_id='$sr_id' and attendance.course = '$course' and attendance.st_status='Present'");
-      $singleT= mysqli_query($con,"select count(*) as countT from attendance where attendance.stat_id='$sr_id' and attendance.course = '$course'");
-  } 
-
-    if(isset($_POST['sr_date'])){
-
-     $sdate = $_POST['date'];
-     $course = $_POST['course'];
-
-     $all_query = mysqli_query($con,"select * from attendance where reports.stat_date='$sdate' and reports.course = '$course'");
-
-    }
-    if(isset($_POST['sr_date'])){
-
-      ?>
-    <div>
-    <table class="table table-stripped" style="background:white; opacity:0.8">
-      <thead>
-        <tr>
-          <th scope="col">Roll No.</th>
-          <th scope="col">Name</th>
-          <th scope="col">Department</th>
-          <th scope="col">Batch</th>
-          <th scope="col">Date</th>
-          <th scope="col">Attendance Status</th>
-        </tr>
-     </thead>
-
-
-    <?php
-
      $i=0;
-     while ($data = mysqli_fetch_array($all_query)) {
-
-       $i++;
-
-     ?>
-        <tbody>
-           <tr>
-             <td><?php echo $data['st_id']; ?></td>
-             <td><?php echo $data['st_name']; ?></td>
-             <td><?php echo $data['st_batch']; ?></td>
-             <td><?php echo $data['stat_date']; ?></td>
-             <td><?php echo $data['st_status']; ?></td>
-           </tr>
-        </tbody>
-
-     <?php 
-   } 
-  }
-     ?>
+     $count_pre = 0;
      
-    </table>
-    </div>
-
-    <form method="post" action="" class="form-horizontal col-md-6 col-md-offset-3">
-    <table class="table table-striped" style="background:white; opacity:0.8">
-
-    <?php
 
 
-    if(isset($_POST['sr_btn'])){
+    if(empty($sr_id)){
+      header("Location: report.php?error=<b>Roll No. Required⚠️");
+      exit();
+    }
 
-       $count_pre = 0;
-       $i= 0;
-       $count_tot;
-       if ($row=mysqli_fetch_row($singleT))
-       {
-       $count_tot=$row[0];
-       }
-       while ($data = mysqli_fetch_array($single)) {
+    $result=mysqli_query($con,"select * from students where st_id='$_POST[sr_id]'");
+
+    $r=mysqli_num_rows($result);
+
+    if($r<1){
+      header("Location: report.php?error=<b>Enter a valid Roll No⚠️");
+      exit();
+    }
+
+    $all_query = mysqli_query($con,"select stat_id,count(*) as countP from attendance where attendance.stat_id='$sr_id' and attendance.course = '$course' and attendance.st_status='Present'");
+
+     $singleT= mysqli_query($con,"select count(*) as countT from attendance where attendance.stat_id='$sr_id' and attendance.course = '$course'");
+
+     $count_tot;
+
+     if ($row=mysqli_fetch_row($singleT))
+     {
+     $count_tot=$row[0];
+     }
+
+     while ($data = mysqli_fetch_array($all_query)) {
        $i++;
-       
+     
+
+
        if($i <= 1){
      ?>
-
+     
 
      <tbody>
       <tr>
-          <td>Student Roll No: </td>
+          <td>Roll No. : </td>
           <td><?php echo $data['stat_id']; ?></td>
       </tr>
 
-           <?php
-         //}
-        
-        // }
-
-      ?>
-      
       <tr>
         <td>Total Class (Days): </td>
         <td><?php echo $count_tot; ?> </td>
@@ -198,6 +168,11 @@ if($_SESSION['name']!='oasis')
         <td><?php echo $count_tot -  $data[1]; ?> </td>
       </tr>
 
+      <tr>
+        <td>Attendance Percentage: </td>
+        <td><?php echo ($data[1]/$count_tot)*100; echo "%" ?> </td>
+      </tr>
+
     </tbody>
 
    <?php
@@ -207,12 +182,15 @@ if($_SESSION['name']!='oasis')
      ?>
     </table>
   </form>
-
   </div>
 
 </div>
 
+
+
 </center>
 
 </body>
+
+
 </html>
